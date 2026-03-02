@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Battle Royale - Free Fire Clone</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Arial', sans-serif; }
+        #crosshair {
+            position: absolute; top: 50%; left: 50%;
+            width: 20px; height: 20px;
+            border: 2px solid white; border-radius: 50%;
+            transform: translate(-50%, -50%); pointer-events: none;
+        }
+        #ui-container {
+            position: absolute; bottom: 20px; width: 100%;
+            display: flex; justify-content: space-between; padding: 0 50px;
+            box-sizing: border-box; pointer-events: none;
+        }
+        .health-bar {
+            width: 250px; height: 20px; background: rgba(0,0,0,0.5);
+            border: 2px solid #fff; border-radius: 5px; overflow: hidden;
+        }
+        #health-fill { width: 100%; height: 100%; background: #00ff00; transition: 0.3s; }
+        .weapon-box {
+            width: 120px; height: 60px; background: rgba(0,0,0,0.6);
+            border: 2px solid gold; border-radius: 8px; color: white;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+        #instructions {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8); color: white; padding: 20px; text-align: center;
+            border-radius: 10px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="instructions">
+        <h1>FREE FIRE CLONE</h1>
+        <p>Click to Play</p>
+        <p>(W,A,S,D to Move | Mouse to Aim | Click to Shoot)</p>
+    </div>
+    <div id="crosshair"></div>
+    <div id="ui-container">
+        <div class="health-bar">
+            <div id="health-fill"></div>
+        </div>
+        <div class="weapon-box">AK-47</div>
+    </div>
+
+    <!-- Libraries -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
